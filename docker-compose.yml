@@ -1,0 +1,12 @@
+version: "3"
+services:
+  pptpd:
+    image: vank3f3/pptpd
+    ports:
+      - "1723:1723"
+    volumes:
+      - ./pptpd.conf:/etc/pptpd.conf
+      - ./pptpd-options:/etc/ppp/pptpd-options
+      - ./chap-secrets:/etc/ppp/chap-secrets
+    privileged: true
+    restart: always
